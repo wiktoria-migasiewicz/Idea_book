@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head_title %} Edit user {% endblock %}
+
+{% block body_title %} Edit user {{ user_data['name'] }} {% endblock %}
+
+{% block body_content %}
+
+
+<form  action="{{ url_for('edit_user', username=user_data['name']) }}" method="POST" >
+    <div class="input-group mb-3">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text">Address email</span>
+          <input  id="email" name="email" type="email" class="form-control" value="{{ user_data['email'] }}" aria-label="Address email" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text">Password</span>
+          <input  id="password" name="password" type="password" class="form-control" aria-label="Password" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+
+{% endblock %}

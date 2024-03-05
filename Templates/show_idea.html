@@ -1,0 +1,26 @@
+{% extends "idea.html" %}
+
+{% block head_title %} Your trip idea {% endblock %}
+
+{% block body_title %} Details of your trip idea  {% endblock %}
+
+{% block body_content %}
+
+    {{ super() }}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col text-left">
+        <a href="{{ url_for('edit_entry', trip_id=trip.id) }}" class="btn btn-primary btn-md" role="button">Edit</a>
+        <a href="{{ url_for('delete_entry', trip_id=trip.id) }}" class="btn btn-danger btn-md" role="button">Delete</a>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

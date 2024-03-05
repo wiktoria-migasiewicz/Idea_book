@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+    Trip ideas
+{% endblock %}
+
+{% block body_title %}
+    Existing ideas
+{% endblock %}
+
+{% block body_content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col text-center">
+        <br><br>
+        <h2>
+        Please select a trip name:
+        </h2>
+    <form action="{{ url_for('index') }}" method="POST">
+        <div>
+            <br>
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                Cooking weekend in Sicily
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for trip in trips %}
+                    <li>
+                        <a class="dropdown-item" href=" {{ url_for('show_idea', trip_id=trip.id) }}">
+                        {{ trip.trip_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+              </ul>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

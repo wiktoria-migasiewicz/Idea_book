@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head_title %} Login to Idea Book{% endblock %}
+
+{% block body_title %} Login {% endblock %}
+
+
+{% block body_content %}
+
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+      <form method="POST" action="{{url_for('login')}}" >
+    <div class="input-group mb-3">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text">Username</span>
+          <input id="username" name="username" type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text">Password</span>
+          <input  id="password" name="password" type="password" class="form-control" aria-label="Password" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Log in</button>
+    </div>
+</form>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

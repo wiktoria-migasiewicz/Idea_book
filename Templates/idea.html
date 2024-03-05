@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block body_content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+        <form class="row g-3" action="{{ url_for('add_idea') if not edit else url_for('edit_entry', trip_id=trip.id) }}" method="POST">
+            <div class="mb-3">
+                <label for="tripName" class="form-label text-left">Trip name</label>
+                <input type="text" class="form-control" id="tripName" name="tripName"
+                       placeholder="{% if not disabled and not edit %}Week on Sicily{% endif %}"
+                       value="{% if edit or trip%}{{trip.trip_name}}{% endif %}"
+                       {% if disabled %}disabled{% endif %} required >
+
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Your email address</label>
+              <input type="email" class="form-control" id="email" name="email"
+                     placeholder="{% if not disabled and not edit %}name@example.com{% endif %}"
+                     value="{% if edit or trip %}{{trip.email}}{% endif %}"
+                     {% if disabled %}disabled{% endif %} required >
+            </div>
+
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Short description</label>
+                <textarea class="form-control" id="description" name="description" rows="1" placeholder="{% if not disabled and not edit %}The trip...{% endif %}" {% if disabled %}disabled{% endif %} required>{% if edit or trip %}{{trip.description}}{% endif %}</textarea>
+            </div>
+
+
+
+            Completness
+            <div class="form-check">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Yes - the idea is complete including price proposal
+              </label>
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"
+                     {% if disabled %}disabled{% endif %}
+                     {% if radiobutton =="default" or trip.radiobutton|string =='1' %}checked{% endif %}>
+
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="flexRadioDefault2">
+                No - this is just pure idea
+              </label>
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="No"
+              {% if disabled %}disabled{% endif %}
+              {% if trip and trip.radiobutton|string =='0'%}checked{% endif %}>
+
+            </div>
+
+            <br>May we contact you for details?
+            <div class="form-check">
+              <label class="form-check-label" for="flexCheckDefault">
+                Yes, I agree
+              </label>
+              <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="flexCheckDefault"
+                     {% if disabled %}disabled{% endif %} {% if checkbox =='default' or trip.checkbox|string =='1'%}checked{% endif %}>
+
+            </div>
+            {% if not disabled and not edit %}
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Send proposal</button>
+                </div>
+            {% elif edit %}
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            {% endif %}
+
+        </form>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

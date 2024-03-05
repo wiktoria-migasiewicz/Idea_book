@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Trip ideas</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+
+        <a class="nav-link {{ "active" if active =="home" }}" aria-current="page" href="{{ url_for('index') }}">Home</a>
+
+        {% if user_pass.is_valid %}
+        <a class="nav-link {{ "active" if active =="add" }}" href="{{ url_for('add_idea') }}">Add an idea</a>
+        {% endif %}
+
+        {% if not user_pass.is_valid%}
+        <a class="nav-link {{ "active" if active =="login" }}" href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+
+        {% if user_pass.is_valid%}
+        <a class="nav-link" href="{{url_for('logout')}}">Log out</a>
+        {% endif %}
+
+        {% if user_pass.is_valid and user_pass.is_admin %}
+        <div class="dropdown ">
+          <button class="btn btn-secondary dropdown-toggle navbar-dark bg-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Users
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item {{ "active" if active =="users" }}" href="{{ url_for('users') }}">Users</a></li>
+            <li><a class="dropdown-item {{ "active" if active =="new_user" }}" href="{{ url_for('new_user') }}">New user</a></li>
+
+          </ul>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</nav>

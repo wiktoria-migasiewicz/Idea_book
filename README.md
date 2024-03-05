@@ -9,7 +9,7 @@
 
 ## About the Project
 
-**![Video](README.md "Video")** of navigating through executing app.
+**![Video](Navigation.mkv "Video")** of navigating through executing app.
 
 A **Python3**  for finding and adding tour ideas, as well as managing users. Working with **user session**, **user data administration** and **access management**. Storing and **encrypting** sensitive data in the database.
 

@@ -3,43 +3,32 @@
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-- [Used Python Modules](#used-python-modules)
-- [Usage](#usage)
+- [Idea](#idea)
 - [Requirements](#requirements)
 
 
 ## About the Project
-A **Python3** program for collecting information about computer (for the project this will be one machine) **hardware**, **operating systems**, installed **software** and their versions.
 
-App consists of two elements: a **client** part that will provide information about a given machine and the **server** part which stores the data.
+**![Video](README.md "Video")** of navigating through executing app.
 
-Information is stored in .db file database using **SQLite3** module in Python.
-Data about system, software and hardware of clients is visible only for administrator in the web interface.
+A **Python3**  for finding and adding tour ideas, as well as managing users. Working with **user session**, **user data administration** and **access management**. Storing and **encrypting** sensitive data in the database.
 
-GUI was designed using **Django** framework.
+I used the **Flask** framework and the **Bootstrap** library to create a pleasant graphical interface for the application. 
 
-While the program is executing, we can watch the communication between the client and the server in the console.
+The application stores information in a database using the **SQLite** module in Python. Confidential data is **encrypted** (hashed and salted).
 
-Communication between the client and the server is **encrypted** to maintain security.
+The program works with a user session. When the user is not logged in only part of the functionality is available. User management is only possible with the site administrator.
 
-## Used Python Modules
+Initializing the application, when there is no user with administrator privileges in the database, requires creating one.
 
-Program was developed with those **Python modules**:
-- **socket**
-- **psutil**
-- **winreg**
-- **platform**
-- **os**
-- **django**
-
-## Usage
-App can be used in order to verify whether there is any software on the computers particularly susceptible to exposure.
+## Idea
+The idea for this app was to collect ideas for new tours from employees of a tour company.  
 
 ## Requirements
 
 - Python 3
 - IDE for Python
-- Django Framework
+- Flask Framework
 
 
 
